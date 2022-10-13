@@ -24,5 +24,10 @@ describe('Teste camada model', function () {
     const result = await productsModel.selectById(4);
     expect(result).to.deep.equal(productNotFind)
   })
+  it('Cadastrar um novo produto', async function () {
+    sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
+    const result = await productsModel.insertProduct('ProdutoX');
+    expect(result).to.be.equal(1)
+  })
     afterEach(sinon.restore);
 })
