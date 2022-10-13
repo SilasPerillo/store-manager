@@ -1,8 +1,8 @@
 const { expect } = require("chai")
 const sinon = require("sinon")
 const { productsModel } = require("../../../src/models")
-const connection = require("../../../src/models/connection")
-const { listProducts, firstProduct, productNotFind } = require("./mocks/products.model.mock")
+const connection = require("../../../src/connection")
+const { listProducts, firstProduct, productNotFind, newProductModal } = require("./mocks/products.model.mock")
 
 
 describe('Teste camada model', function () {
@@ -11,23 +11,27 @@ describe('Teste camada model', function () {
 
     const result = await productsModel.selectAll();
     expect(result).to.deep.equal(listProducts);
-  })
+  });
+
   it('Verifica retorno de somente um id', async function () {
     sinon.stub(connection, 'execute').resolves([[firstProduct]]);
 
     const result = await productsModel.selectById(1);
     expect(result).to.deep.equal(firstProduct);
-  })
+  });
+
   it('Verifica retorno de um id não encontrado', async function () {
     sinon.stub(connection, 'execute').resolves([[productNotFind]]);
 
     const result = await productsModel.selectById(4);
     expect(result).to.deep.equal(productNotFind)
-  })
+  });
+
   it('Cadastrar um novo produto', async function () {
     sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
     const result = await productsModel.insertProduct('ProdutoX');
-    expect(result).to.be.equal(1)
-  })
-    afterEach(sinon.restore);
+    expect(result).to.deep.equal(newProductModal)
+  });
+
+  afterEach(sinon.restore);
 })

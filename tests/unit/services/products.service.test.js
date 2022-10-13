@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const { listProductsService, invalideId, firstProductsService, notFoundId } = require('./mocks/products.service.mock');
+const { listProductsService, invalideId, firstProductsService, notFoundId, newProductResultService, newProductService, newProductServiceWrongLength, newProductServiceResultWrongLength } = require('./mocks/products.service.mock');
 const { productsModel } = require('../../../src/models');
 const { productsService } = require('../../../src/services');
-const { listProducts, firstProduct } = require('../models/mocks/products.model.mock');
+const { listProducts, firstProduct, newProductModal, newProductModalWrongLength } = require('../models/mocks/products.model.mock');
 
 describe('Teste unitário da camada service', () => {
 
@@ -35,5 +35,19 @@ describe('Teste unitário da camada service', () => {
     expect(result).to.deep.equal(notFoundId);
   });
 
-    afterEach(sinon.restore);
+  it('Valida cadastro na camada service', async function () {
+    sinon.stub(productsModel, 'insertProduct').resolves(newProductModal);
+
+    const result = await productsService.insertProductService(newProductService);
+    expect(result).to.deep.equal(newProductResultService)
+  });
+
+  it('Valida erro de cadastro na camada service, ', async function () {
+    sinon.stub(productsModel, 'insertProduct').resolves(newProductModalWrongLength)
+
+    const result = await productsService.insertProductService(newProductServiceWrongLength)
+    expect(result).to.deep.equal(newProductServiceResultWrongLength)
+  })
+
+  afterEach(sinon.restore);
 })

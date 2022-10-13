@@ -1,9 +1,11 @@
-const sinon = require("sinon");
+   const sinon = require("sinon");
 const chai = require("chai");
-const { listProducts, getProduct } = require("../../../src/controllers/products.controller");
+const { listProducts, getProduct, insertProductController } = require("../../../src/controllers/products.controller");
 const sinonChai = require('sinon-chai');
 const { productsService } = require("../../../src/services");
-const { resultAllProducts, resultOneProduct, idNotFound } = require("./mocks/products.controller.mock");
+const { resultAllProducts, resultOneProduct, idNotFound, newProductController, newProductControllerWrongLength } = require("./mocks/products.controller.mock");
+const { insertProductService } = require("../../../src/services/products.service");
+const { newProductModal } = require("../models/mocks/products.model.mock");
 
 const { expect } = chai;
 chai.use(sinonChai);
@@ -57,6 +59,42 @@ describe('Testa camada controller', function () {
 
     expect(res.status).to.have.been.calledWith(404);
     expect(res.json).to.have.been.calledWith({ message: idNotFound.message });
+  });
+
+  it('Valida controller, insert', async function () {
+    const res = {}
+    const req = {
+      body: { name: 'ProdutoX' },
+    };
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsService, 'insertProductService').resolves(newProductController);
+
+    await insertProductController(req, res);
+
+    expect(res.status).to.have.been.calledWith(201)
+    expect(res.json).to.have.been.calledWith([newProductModal])
+
+  });
+
+  it('Valida controller, erro insert', async function () {
+    const res = {}
+    const req = {
+      body: { name: 'Abc' },
+    };
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsService, 'insertProductService').resolves(newProductControllerWrongLength);
+
+    await insertProductController(req, res);
+
+    expect(res.status).to.have.been.calledWith(422)
+    expect(res.json).to.have.been.calledWith({message: newProductControllerWrongLength.message})
+
   });
 
   afterEach(sinon.restore);

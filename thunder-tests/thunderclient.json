@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-12T23:58:08.614Z",
-    "modified": "2022-10-13T02:43:55.738Z",
+    "modified": "2022-10-13T14:59:28.908Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\n}",
+      "raw": "{\n  \"name\": \"Abc\"\n}",
       "form": []
     },
     "tests": []

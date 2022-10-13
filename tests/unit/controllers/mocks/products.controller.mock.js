@@ -26,10 +26,26 @@ const resultOneProduct = {
   ]
 };
 
+const newProductController = {
+    type: null,
+  message: [
+    {
+      "id": 1,
+      "name": "ProdutoX"
+    }
+  ]
+}
+
+const newProductControllerWrongLength = {
+  type: 'string.min', message: '"name" length must be at least 5 characters long'
+}
+
 const idNotFound = { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }
 
 module.exports = {
   resultAllProducts,
   resultOneProduct,
   idNotFound,
+  newProductController,
+  newProductControllerWrongLength,
 }
