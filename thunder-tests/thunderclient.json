@@ -22,12 +22,31 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-12T23:58:08.614Z",
-    "modified": "2022-10-13T14:59:28.908Z",
+    "modified": "2022-10-13T21:03:02.669Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Abc\"\n}",
+      "raw": "{\n  \"name\": \"asd\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4b304236-9ca7-412a-adef-df620d70e421",
+    "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
+    "containerId": "",
+    "name": "post rota sales",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-10-14T20:08:22.644Z",
+    "modified": "2022-10-14T20:53:52.467Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": -1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
