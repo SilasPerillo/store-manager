@@ -18,7 +18,10 @@ const insertProductSale = async (saleId, productId, quant) => {
 
 const getSaleModal = async (saleId) => {
   const [result] = await connection.execute(
-    `SELECT product_id, quantity FROM StoreManager.sales_products WHERE ${saleId} = sale_id`,
+    `SELECT
+      product_id,
+      quantity
+    FROM StoreManager.sales_products WHERE ${saleId} = sale_id ORDER BY product_id ASC`,
   );
   return camelize(result);
 };
