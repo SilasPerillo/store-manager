@@ -1,4 +1,3 @@
-// const model
 const { productsModel, salesModel } = require('../models');
 const { insertProductSale, getSaleModal } = require('../models/sales.model');
 const { validateSales } = require('./validations/validationsInputValues');
