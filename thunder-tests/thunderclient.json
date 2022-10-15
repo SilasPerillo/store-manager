@@ -41,12 +41,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-10-14T20:08:22.644Z",
-    "modified": "2022-10-14T21:42:21.534Z",
+    "modified": "2022-10-15T19:52:11.232Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
@@ -84,11 +84,11 @@
     "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
     "containerId": "",
     "name": "put products id",
-    "url": "http://localhost:3000/products/1",
+    "url": "http://localhost:3000/products/99",
     "method": "PUT",
     "sortNum": 15000,
     "created": "2022-10-15T02:03:34.935Z",
-    "modified": "2022-10-15T03:32:30.866Z",
+    "modified": "2022-10-15T19:50:07.931Z",
     "headers": [],
     "params": [],
     "body": {
@@ -96,6 +96,20 @@
       "raw": "{\n  \"name\": \"test test\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "22fbbc86-37fe-474a-abfe-6eb29a5669b9",
+    "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
+    "containerId": "",
+    "name": "delete products id",
+    "url": "http://localhost:3000/products/3",
+    "method": "DELETE",
+    "sortNum": 17500,
+    "created": "2022-10-15T20:55:54.938Z",
+    "modified": "2022-10-15T21:00:05.721Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

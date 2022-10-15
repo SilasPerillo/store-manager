@@ -30,13 +30,21 @@ const updateProductId = async (req, res) => {
   const { id } = req.params;
   const product = req.body;
 
-  console.log(product);
-
   const { type, message } = await productsService.updateProductId(product, id);
 
-    if (type) return res.status(errorMap.mapError(type)).json({ message });
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
 
   res.status(200).json({ id, name: product.name });
+};
+
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+
+  const { type, message } = await productsService.deleteProduct(Number(id));
+
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
+
+  res.status(204).json();
 };
 
 module.exports = {
@@ -44,4 +52,5 @@ module.exports = {
   getProduct,
   insertProductController,
   updateProductId,
+  deleteProduct,
 };
