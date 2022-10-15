@@ -4,7 +4,7 @@ const { validateSales } = require('./validations/validationsInputValues');
 
 const validadeContainProduct = async (salesList) => {
   const arrayProductsId = await Promise.all(
-    salesList.map((sale) => productsModel.selectById(sale.productId)),
+    salesList.map(async (sale) => productsModel.selectById(sale.productId)),
   );
 
   return arrayProductsId.some((value) => value === undefined);
@@ -12,7 +12,7 @@ const validadeContainProduct = async (salesList) => {
 
 const executeInsertSales = async (sales, saleId) => {
   await Promise.all(
-    sales.map((value) => insertProductSale(saleId, value.productId, value.quantity)),
+    sales.map(async (value) => insertProductSale(saleId, value.productId, value.quantity)),
   );
 };
 
@@ -37,7 +37,6 @@ const getSaleListService = async () => {
 
 const getSaleListServiceId = async (id) => {
   const listSales = await salesModel.getSalesListId(id);
-  console.log(listSales);
 
   if (listSales.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
 
