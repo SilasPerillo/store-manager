@@ -47,10 +47,19 @@ const getSalesListId = async (id) => {
   return camelize(result);
 };
 
+const deleteSale = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?',
+    [id],
+  );
+  return result;
+};
+
 module.exports = {
   insertSaleModal,
   insertProductSale,
   getSaleModal,
   getSalesListModel,
   getSalesListId,
+  deleteSale,
 };

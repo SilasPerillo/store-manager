@@ -43,8 +43,19 @@ const getSaleListServiceId = async (id) => {
   return { type: null, message: listSales };
 };
 
+const deleteSale = async (id) => {
+  const getProduct = await salesModel.getSaleModal(id);
+
+  if (getProduct.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
+
+  const deleteId = await salesModel.deleteSale(id);
+
+  return { type: null, message: deleteId };
+};
+
 module.exports = {
   insertSalesService,
   getSaleListService,
   getSaleListServiceId,
+  deleteSale,
 };
