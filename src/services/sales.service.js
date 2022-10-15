@@ -30,6 +30,22 @@ const insertSalesService = async (listSales) => {
   return { type: null, message: { id: saleId, itemsSold } };
 };
 
+const getSaleListService = async () => {
+  const listSales = await salesModel.getSalesListModel();
+  return { type: null, message: listSales };
+};
+
+const getSaleListServiceId = async (id) => {
+  const listSales = await salesModel.getSalesListId(id);
+  console.log(listSales);
+
+  if (listSales.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
+
+  return { type: null, message: listSales };
+};
+
 module.exports = {
   insertSalesService,
+  getSaleListService,
+  getSaleListServiceId,
 };

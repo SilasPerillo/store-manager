@@ -50,5 +50,33 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "3888ba3f-15e2-4399-97ed-1d9a52531c80",
+    "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
+    "containerId": "",
+    "name": "get rota get",
+    "url": "http://localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-10-15T00:05:09.038Z",
+    "modified": "2022-10-15T00:05:20.038Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "15810d29-5e34-4bce-afe9-f2353fc09b6a",
+    "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
+    "containerId": "",
+    "name": "get rota get Id",
+    "url": "http://localhost:3000/sales/99",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-10-15T00:38:36.758Z",
+    "modified": "2022-10-15T01:33:00.790Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
