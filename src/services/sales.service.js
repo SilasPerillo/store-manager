@@ -19,6 +19,7 @@ const executeInsertSales = async (sales, saleId) => {
 const insertSalesService = async (listSales) => {
   const error = validateSales(listSales);
   if (error.type) return error;
+
   if (await validadeContainProduct(listSales)) {
     return {
     type: 'NOT_FOUND', message: 'Product not found',
@@ -44,13 +45,33 @@ const getSaleListServiceId = async (id) => {
 };
 
 const deleteSale = async (id) => {
-  const getProduct = await salesModel.getSaleModal(id);
+  const getSale = await salesModel.getSaleModal(id);
 
-  if (getProduct.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
+  if (getSale.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
 
   const deleteId = await salesModel.deleteSale(id);
 
   return { type: null, message: deleteId };
+};
+
+const updateSaleId = async (id, sale) => {
+  const error = validateSales(sale);
+  if (error.type) return error;
+
+  if (await validadeContainProduct(sale)) {
+    return {
+      type: 'NOT_FOUND', message: 'Product not found',
+    };
+  }
+
+  const getSale = await salesModel.getSaleModal(id);
+  if (getSale.length === 0) return { type: 'NOT_FOUND', message: 'Sale not found' };
+
+  await Promise.all(sale.map((value) => salesModel
+    .updateSaleId(id, value.productId, value.quantity)));
+
+  const newSale = await salesModel.getSaleModal(id);
+  return { type: null, message: { saleId: id, itemsUpdated: newSale } };
 };
 
 module.exports = {
@@ -58,4 +79,5 @@ module.exports = {
   getSaleListService,
   getSaleListServiceId,
   deleteSale,
+  updateSaleId,
 };
