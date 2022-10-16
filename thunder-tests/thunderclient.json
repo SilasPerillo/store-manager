@@ -144,5 +144,25 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "393594ec-4bab-4594-9c42-6db2876063ca",
+    "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
+    "containerId": "",
+    "name": "search products ",
+    "url": "http://localhost:3000/products/search?q=",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2022-10-16T00:25:05.035Z",
+    "modified": "2022-10-16T00:50:38.668Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]

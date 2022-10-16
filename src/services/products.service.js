@@ -46,10 +46,21 @@ const deleteProduct = async (id) => {
   return { type: null, message: deleteId };
 };
 
+const searchProduct = async (query) => {
+  const searchAllProductQuery = await productsModel.searchProduct(query);
+
+  if (searchAllProductQuery.length === 0) return productsModel.selectAll();
+
+  // const searchProductQuery = await productsModel.searchProduct(query);
+
+  return { message: searchAllProductQuery };
+};
+
 module.exports = {
   findAll,
   findById,
   insertProductService,
   updateProductId,
   deleteProduct,
+  searchProduct,
 };
