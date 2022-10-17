@@ -51,8 +51,6 @@ const searchProduct = async (query) => {
 
   if (searchAllProductQuery.length === 0) return productsModel.selectAll();
 
-  // const searchProductQuery = await productsModel.searchProduct(query);
-
   return { message: searchAllProductQuery };
 };
 

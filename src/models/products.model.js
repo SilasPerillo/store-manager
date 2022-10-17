@@ -37,6 +37,7 @@ const deleteProduct = async (id) => {
     'DELETE FROM StoreManager.products WHERE id = ?',
     [id],
   );
+  console.log(result);
   return result;
 };
 
@@ -45,11 +46,6 @@ const searchProduct = async (query) => {
     'SELECT * FROM StoreManager.products WHERE name LIKE ?',
     [`%${query}%`],
   );
-    console.log('teste');
-    console.log('teste');
-    console.log('teste');
-    console.log('teste');
-    console.log(result);
   return result;
 };
 

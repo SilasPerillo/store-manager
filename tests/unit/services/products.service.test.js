@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const { listProductsService, invalideId, firstProductsService, notFoundId, newProductResultService, newProductService, newProductServiceWrongLength, newProductServiceResultWrongLength } = require('./mocks/products.service.mock');
+const { listProductsService, invalideId, firstProductsService, notFoundId, newProductResultService, newProductService, newProductServiceWrongLength, newProductServiceResultWrongLength, deletedProduct } = require('./mocks/products.service.mock');
 const { productsModel } = require('../../../src/models');
 const { productsService } = require('../../../src/services');
 const { listProducts, firstProduct, newProductModal, newProductModalWrongLength } = require('../models/mocks/products.model.mock');
@@ -47,6 +47,15 @@ describe('Teste unitário da camada service', () => {
 
     const result = await productsService.insertProductService(newProductServiceWrongLength)
     expect(result).to.deep.equal(newProductServiceResultWrongLength)
+  })
+
+  it('Deleta um produto na camada service', async function () {
+    sinon.stub(productsModel, 'selectById').resolves(true);
+    sinon.stub(productsModel, 'deleteProduct').resolves(deletedProduct);
+
+    await productsService.deleteProduct(2);
+
+    expect(deletedProduct.type).to.deep.equal(204)
   })
 
   afterEach(sinon.restore);

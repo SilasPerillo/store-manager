@@ -12,7 +12,7 @@ const validadeContainProduct = async (salesList) => {
 
 const executeInsertSales = async (sales, saleId) => {
   await Promise.all(
-    sales.map(async (value) => insertProductSale(saleId, value.productId, value.quantity)),
+    sales.map((value) => insertProductSale(saleId, value.productId, value.quantity)),
   );
 };
 

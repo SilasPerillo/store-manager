@@ -2,7 +2,7 @@ const { expect } = require("chai")
 const sinon = require("sinon")
 const { productsModel } = require("../../../src/models")
 const connection = require("../../../src/connection")
-const { listProducts, firstProduct, productNotFind, newProductModal } = require("./mocks/products.model.mock")
+const { listProducts, firstProduct, productNotFind, newProductModal, deletedProduct } = require("./mocks/products.model.mock")
 
 
 describe('Teste camada model', function () {
@@ -32,6 +32,12 @@ describe('Teste camada model', function () {
     const result = await productsModel.insertProduct('ProdutoX');
     expect(result).to.deep.equal(newProductModal)
   });
+
+  it('Deleta um produto', async function () {
+    sinon.stub(connection, 'execute').resolves(deletedProduct);
+    const result = await productsModel.deleteProduct(1);
+    expect(result).to.deep.equal({ type: 204 })
+  })
 
   afterEach(sinon.restore);
 })

@@ -42,10 +42,17 @@ const newProductControllerWrongLength = {
 
 const idNotFound = { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }
 
+const productUpdate = [
+  {
+  "name": "test test"
+  }
+]
+
 module.exports = {
   resultAllProducts,
   resultOneProduct,
   idNotFound,
   newProductController,
   newProductControllerWrongLength,
+  productUpdate,
 }

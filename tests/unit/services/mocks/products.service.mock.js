@@ -43,6 +43,16 @@ const newProductServiceResultWrongLength = {
   message: "\"name\" length must be at least 5 characters long"
 };
 
+const deletedProduct = {
+  type: 204,
+  message: [
+    {
+      id: 1,
+      name: "Martelo de Thor",
+    },
+  ],
+};
+
 module.exports = {
   listProductsService,
   invalideId,
@@ -52,5 +62,6 @@ module.exports = {
   newProductService,
   newProductServiceWrongLength,
   newProductServiceResultWrongLength,
+  deletedProduct,
 }
 

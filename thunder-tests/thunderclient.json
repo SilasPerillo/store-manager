@@ -103,11 +103,11 @@
     "colId": "05cc932f-8442-4c4c-8d14-8c28a06ccacb",
     "containerId": "",
     "name": "delete products id",
-    "url": "http://localhost:3000/products/3",
+    "url": "http://localhost:3000/products/1",
     "method": "DELETE",
     "sortNum": 17500,
     "created": "2022-10-15T20:55:54.938Z",
-    "modified": "2022-10-15T21:00:05.721Z",
+    "modified": "2022-10-17T16:55:50.191Z",
     "headers": [],
     "params": [],
     "tests": []

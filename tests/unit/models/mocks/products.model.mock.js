@@ -31,6 +31,12 @@ const newProductModalWrongLength = { id: 1, name: 'Abc' }
 
 const productNotFind = { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }
 
+const deletedProduct = [
+   {
+      type: 204,
+  },
+];
+
 module.exports = {
   listProducts,
   firstProduct,
@@ -38,4 +44,5 @@ module.exports = {
   newProductResult,
   newProductModal,
   newProductModalWrongLength,
+  deletedProduct,
 }
