@@ -1,10 +1,22 @@
+# Store Manager
+
+Este projeto é uma API RESTful desenvolvida na Trybe que gerencia um sistema de vendas no formato dropshipping, permitindo criar, visualizar, deletar e atualizar produtos e vendas de uma loja. É um CRUD (create, read, update, delete) Store API que se conecta a um banco de dados MySQL para gerenciar produtos e vendas, utilizando diversas ferramentas e implementando a arquitetura MSC (model-service-controller).
+
+## Tecnologias utilizadas
+
+- Node.js
+- Express
+- MySQL
+
+
+## Instruções da aplicação
+
+### Instalar dependências
+
+Para instalar as dependências do projeto, acesse o diretório do projeto e execute os comandos:
+
+`cd store-manager`
+`npm install`
+
+
 # :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
